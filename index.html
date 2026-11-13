@@ -142,6 +142,30 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(14,44,107,.2
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<!-- GA4 Xalingo (experiencias digitais) -->
+<script>
+/* Google Analytics (GA4) — mesma propriedade do Menu e dos Manuais (painel MKT > Experiências digitais).
+   Sem anúncios e sem sinais do Google. Só liga no site publicado (github.io / xalingo.com.br) ou com ?ga=1. */
+(function () {
+  var ID = 'G-HB9RN5N1J2', GRUPO = 'RA', TOQUE = 'ra';
+  window.xalMede = function (evento, p) {
+    if (typeof window.gtag !== 'function') return;
+    p = p || {}; p.transport_type = 'beacon';
+    window.gtag('event', evento, p);
+  };
+  if (!/(\.github\.io|xalingo\.com\.br)$/.test(location.hostname) && !/[?&]ga=1\b/.test(location.search)) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', ID, { content_group: GRUPO, allow_google_signals: false, allow_ad_personalization_signals: false });
+  var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+  document.head.appendChild(s);
+  if (TOQUE) document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[data-id]') : null;
+    if (a) window.xalMede('select_content', { content_type: TOQUE, content_id: a.getAttribute('data-id') });
+  }, true);
+})();
+</script>
 </head>
 <body>
 <header class="fx-top"><div class="wrap">
