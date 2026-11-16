@@ -142,6 +142,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(14,44,107,.2
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<script src="/menu/privacidade.js?v=1"></script>
 <!-- GA4 Xalingo (experiencias digitais) -->
 <script>
 /* Google Analytics (GA4) — mesma propriedade do Menu e dos Manuais (painel MKT > Experiências digitais).
@@ -154,12 +155,15 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(14,44,107,.2
     window.gtag('event', evento, p);
   };
   if (!/(\.github\.io|xalingo\.com\.br)$/.test(location.hostname) && !/[?&]ga=1\b/.test(location.search)) return;
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { window.dataLayer.push(arguments); };
-  window.gtag('js', new Date());
-  window.gtag('config', ID, { content_group: GRUPO, allow_google_signals: false, allow_ad_personalization_signals: false });
-  var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
-  document.head.appendChild(s);
+  function ligarGA() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', ID, { content_group: GRUPO, allow_google_signals: false, allow_ad_personalization_signals: false });
+    var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+    document.head.appendChild(s);
+  }
+  if (window.XalPriv) window.XalPriv.aoPermitir(ligarGA);   /* GA só depois do "Aceitar" no aviso de cookies */
   if (TOQUE) document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[data-id]') : null;
     if (a) window.xalMede('select_content', { content_type: TOQUE, content_id: a.getAttribute('data-id') });
@@ -198,7 +202,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(14,44,107,.2
 </main>
 
 <section class="fx-veja" aria-label="Veja também"><h2>Veja também</h2><div class="fx-g"><a href="https://inovacaoxalingo.github.io/manuais/" style="--c:#60D437"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.2 5.2 7.8 4.6 4 4.6v13c3.8 0 6.2.6 8 1.9 1.8-1.3 4.2-1.9 8-1.9v-13c-3.8 0-6.2.6-8 1.9z"/><path d="M12 6.5v13"/></svg></i><div><b>Manuais</b><span>Regras e instruções de montagem</span></div><em>›</em></a><a href="https://inovacaoxalingo.github.io/jogos/" style="--c:#00A1FF"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10a5 5 0 0 1 4.9 6l-.6 3a2.5 2.5 0 0 1-4.3 1.2L15 16H9l-2 2.2A2.5 2.5 0 0 1 2.7 17l-.6-3A5 5 0 0 1 7 8z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.5" cy="11.5" r=".6" fill="currentColor"/><circle cx="17.5" cy="13.5" r=".6" fill="currentColor"/></svg></i><div><b>Jogos digitais</b><span>Jogue online com os brinquedos</span></div><em>›</em></a><a href="https://inovacaoxalingo.github.io/menu/" style="--c:#fff;--c:linear-gradient(135deg,#E3B500,#FF9200 50%,#E10000)"><i style="color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></i><div><b>Menu Xalingo</b><span>Tudo num lugar só</span></div><em>›</em></a></div></section>
-<footer class="fx-rod"><div class="fx-pt" aria-hidden="true"><i style="background:#164194"></i><i style="background:#00A1FF"></i><i style="background:#60D437"></i><i style="background:#E3B500"></i><i style="background:#FF9200"></i><i style="background:#E10000"></i></div>© Xalingo Brinquedos. Todos os direitos reservados.<br><a href="https://www.xalingo.com.br/" target="_blank" rel="noopener">xalingo.com.br</a></footer>
+<footer class="fx-rod"><div class="fx-pt" aria-hidden="true"><i style="background:#164194"></i><i style="background:#00A1FF"></i><i style="background:#60D437"></i><i style="background:#E3B500"></i><i style="background:#FF9200"></i><i style="background:#E10000"></i></div>© Xalingo Brinquedos. Todos os direitos reservados.<br><a href="https://www.xalingo.com.br/" target="_blank" rel="noopener">xalingo.com.br</a> · <a href="/menu/privacidade.html" data-privacidade>Privacidade e cookies</a></footer>
 
 <script>
 /* =====================================================================
